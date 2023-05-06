@@ -9,7 +9,7 @@ const app = express();
 
 const options = {
     ca: fs.readFileSync('ssl/ca_bundle.crt'),
-    cert: fs.readFileSync('ssl/certificate.pem'),
+    cert: fs.readFileSync('ssl/certificate.cre'),
     key: fs.readFileSync('ssl/private.key')
 };
 
