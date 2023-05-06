@@ -1,0 +1,13 @@
+{
+    "文件名必须修改为config.json才能生效":"",
+    "port":443,
+    
+    "private_key":"token密钥",
+
+    "token_live_time":"30min",
+
+    "proxy":"负载均衡主机ip或域名",
+
+    "appId": "必填",
+    "appSecret": "必填"
+}
