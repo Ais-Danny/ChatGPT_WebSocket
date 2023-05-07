@@ -30,7 +30,7 @@
 - <b> /api/v1/chat</b><br>
 使用上一个接口产生的token作为请求头"authorization"的值
 <br><br>
-请求头(下面消息应封装在wss连接请求头<mark>"body"</mark>中,还有请求头<mark>"authorization"</mark>)
+下面是向服务端WebSocket发送消息格式(响应为服务端发送的多条消息,以标识<font color = #00FFFF>'[DONE]'</font>结束)
 ```json
 {
     "messages": [

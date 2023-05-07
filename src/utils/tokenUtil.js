@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const Result=require('../entity/result')
 const axios=require('axios')
 
-function token_check(wsConnect, req) {
+function token_check(ws, req) {
     let token = req.headers['authorization']
     let clientIP = req.headers['x-real-ip'] || req.headers['x-forwarded-for'] || req.ip;
     try {
@@ -10,9 +10,9 @@ function token_check(wsConnect, req) {
         console.log('验证结果', result);
         return true;
     } catch (e) {
-        wsConnect.send(new Result("校验失败,禁止访问", 403, false));
+        ws.send(JSON.stringify(new Result("校验失败,禁止访问", 403, false)));
         global.logger.warn(" 403,未授权的请求, ip :" + clientIP + ",Authorization:" + req.headers['authorization']);
-        wsConnect.close();
+        ws.close();
         return false;
     }
 }
