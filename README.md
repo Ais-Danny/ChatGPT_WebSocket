@@ -2,8 +2,8 @@
 
 ## <b>简介</b>
 <font color = #00FFFF size=4 >此仓库应与仓库<a>https://github.com/Ais-Danny/ChatGPT_API</a>配合使用</font>
-### <b>WebSocket接口</b>
-- <b>/api/login/creatToken</b><br>
+### <b>接口</b>
+- <b>POST /api/login/creatToken</b><br>
 创建token, 在请求头中填入"js_code"参数,此参数由下面代码产生
 ```javascript
   wx.login({
@@ -27,7 +27,7 @@
 }
 ```
 
-- <b> /api/v1/chat</b><br>
+- <b>WebSocket /api/v1/chat</b><br>
 使用上一个接口产生的token作为请求头"authorization"的值
 <br><br>
 下面是向服务端WebSocket发送消息格式(响应为服务端发送的多条消息,以标识<font color = #00FFFF>'[DONE]'</font>结束)
