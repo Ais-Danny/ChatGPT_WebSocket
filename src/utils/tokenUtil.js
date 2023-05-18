@@ -1,8 +1,9 @@
-const jwt = require('jsonwebtoken');
+
 const Result=require('../entity/result')
 const axios=require('axios')
 
 function token_check(ws, req) {
+    const jwt = require('jsonwebtoken');
     let token = req.headers['authorization']
     let clientIP = req.headers['x-real-ip'] || req.headers['x-forwarded-for'] || req.ip;
     try {
