@@ -10,6 +10,7 @@ router.ws('/creatToken', function (ws, req) {
 })
 // 创建token
 router.post('/creatToken', async (req, res) => {
+    const jwt = require('jsonwebtoken');
     let code = req.headers['js_code']
     let clientIP = req.headers['x-real-ip'] || req.headers['x-forwarded-for'] || req.ip;
     if (req.headers['js_code'] == null) {
@@ -21,7 +22,7 @@ router.post('/creatToken', async (req, res) => {
     let result = await axios.get(url)
     const userinfo = result.data
     if (userinfo.session_key != null && userinfo.openid != null) {//判断code是否有效
-        const token = jwt.sign({ userinfo }, global.config.private_key, { expiresIn: global.config.chat.token_live_time })
+        const token = jwt.sign({ userinfo }, global.config.private_key, { expiresIn: global.config.token_live_time })
         res.send(new Result(token))
         global.logger.warn(`生成新token, ip: ${clientIP} ,openid: ${userinfo.openid}`)
     } else {

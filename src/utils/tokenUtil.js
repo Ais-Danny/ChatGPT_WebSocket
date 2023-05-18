@@ -19,6 +19,7 @@ function token_check(ws, req) {
 }
 
 async function token_creat(ws, req) {
+    const jwt = require('jsonwebtoken');
     let code = req.headers['js_code']
     let clientIP = req.headers['x-real-ip'] || req.headers['x-forwarded-for'] || req.ip;
     if (req.headers['js_code'] == null) {
