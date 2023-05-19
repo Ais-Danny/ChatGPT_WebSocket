@@ -16,7 +16,8 @@ function Sys_logs() {
                 // 配置文件名为 chat.log
                 filename: 'logs/chatgpt.log',
                 maxLogSize: 10 * 1024 * 1024, // 10mb,日志文件大小,超过该size则自动创建新的日志文件
-                backups: 20,  // 仅保留最新的20个日志文件
+                //backups: 20, // 仅保留最新的20个日志文件
+                maxDays: 7,
                 // compress: true, //  超过maxLogSize,压缩代码
                 encoding: 'utf-8',// 指定编码格式为 utf-8
                 layout: {// 配置 layout，此处使用自定义模式 pattern
